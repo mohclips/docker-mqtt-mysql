@@ -2,10 +2,10 @@ version: '2.4'
 
 services:
 
-  temp_sensors:
+  energy-mqtt2mysql:
     build: .
     tty: true
-    container_name: temp_sensors
+    container_name: energy-mqtt2mysql
     # restart always = if unhealthy re-start the container
     restart: always
  
@@ -33,10 +33,10 @@ services:
 # we have to specify the network subnet as that is what mysql expects the container to connect from
 networks:
   mysql_network:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: "192.168.83.0/24"
-          gateway: "192.168.83.1"
+#    driver: bridge
+#    ipam:
+#      driver: default
+#      config:
+#        - subnet: "192.168.83.0/24"
+#          gateway: "192.168.83.1"
 
